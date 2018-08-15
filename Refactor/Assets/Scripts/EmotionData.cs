@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ManProperties", menuName = "Man/Properties", order = 1)]
-public class ManProperties : ScriptableObject {
+[CreateAssetMenu(fileName = "EmotionData", menuName = "Man/EmotionData", order = 1)]
+public class EmotionData : ScriptableObject {
 
 	public Texture Mouth;
 	public AudioClip OnChange;

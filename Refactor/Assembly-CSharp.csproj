@@ -51,8 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ManProperties.cs" />
-     <Compile Include="Assets\Scripts\MonoBehaviours\GameManager.cs" />
+     <Compile Include="Assets\Scripts\EmotionData.cs" />
+     <Compile Include="Assets\Scripts\MonoBehaviours\Managers\EmotionsRegistry.cs" />
+     <Compile Include="Assets\Scripts\MonoBehaviours\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\MonoBehaviourSingleton.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
