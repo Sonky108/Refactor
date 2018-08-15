@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonoBehaviourSingleton<T> : MonoBehaviour  where T : class {
-
+public class MonoBehaviourSingleton<T> : MonoBehaviour  where T : class 
+{
     public static T Instance;
 
     private void Awake()
