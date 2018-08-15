@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\EmotionData.cs" />
+     <Compile Include="Assets\Scripts\Enums\Emotion.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Managers\EmotionsRegistry.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\MonoBehaviourSingleton.cs" />
