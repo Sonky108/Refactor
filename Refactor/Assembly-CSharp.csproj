@@ -51,11 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ControllerUI.cs" />
      <Compile Include="Assets\Scripts\Enums\Emotion.cs" />
      <Compile Include="Assets\Scripts\Enums\Extensions.cs" />
+     <Compile Include="Assets\Scripts\ManController.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Managers\EmotionsRegistry.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\MonoBehaviourSingleton.cs" />
+     <Compile Include="Assets\Scripts\PointerController.cs" />
+     <Compile Include="Assets\Scripts\PointerEvent.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\EmotionData.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

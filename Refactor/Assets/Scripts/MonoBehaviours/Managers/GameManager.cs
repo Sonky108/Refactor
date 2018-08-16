@@ -8,18 +8,32 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
 	private Emotion currentEmotion;
 
-	private void GetNextEmotion()
+	public override void OnAwake()
+	{
+		ControllerUI.Instance.ScreenUpListeners += OnScreenPressed;
+	}
+
+    private void OnScreenPressed()
+    {
+        if(EmotionCanBeChanged())
+		{
+			ChangeEmotion();
+			Debug.Log("Emotion changed");
+		}
+    }
+
+    private bool EmotionCanBeChanged()
+    {
+        return true;
+    }
+
+    private void ChangeEmotion()
 	{
 		currentEmotion = currentEmotion.Next();
 
 		var emotionData = EmotionsRegistry.Instance.GetEmotionData(currentEmotion);
 
 		EmotionChangedListeners?.Invoke(emotionData);
-	}
-
-	public override void OnAwake()
-	{
-		InvokeRepeating("GetNextEmotion", 0f, 0.4f);
 	}
 
 	private void Update()
