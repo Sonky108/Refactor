@@ -22,9 +22,9 @@ public class ControllerUI : MonoBehaviourSingleton<ControllerUI>
 
     private void BindButtons()
     {
-        Screen.OnPointerDown.AddListener(OnTurnLeftButtonPressed);
+        Screen.OnPointerDown.AddListener(OnScreenDown);
 
-        Screen.OnPointerUp.AddListener(OnTurnLeftButtonReleased);
+        Screen.OnPointerUp.AddListener(OnScreenUp);
     }
 
     private void UnbindButtons()
@@ -34,12 +34,12 @@ public class ControllerUI : MonoBehaviourSingleton<ControllerUI>
         Screen.OnPointerUp.RemoveListeners();
     }
 
-    private void OnTurnLeftButtonReleased()
+    private void OnScreenUp()
     {
         ScreenUpListeners?.Invoke();
     }
 
-    private void OnTurnLeftButtonPressed()
+    private void OnScreenDown()
     {
         ScreenDownListeners?.Invoke();
     }

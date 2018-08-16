@@ -7,7 +7,8 @@ public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 {
     public PointerEvent OnPointerDown;
     public PointerEvent OnPointerUp;
-
+    public PointerEvent OnPointerPressed;
+    
     private bool isPressed;
     private bool isUp;
 
