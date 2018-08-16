@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cf26344dfb3bd4b8c0b9afb412f7df, type: 3}
   m_Name: Confused
   m_EditorClassIdentifier: 
-  emotion: 3
+  emotion: 4
   mouth: {fileID: 2800000, guid: 138b3e4e88238d84b95b52cef4e98e34, type: 3}
   onChange: {fileID: 0}

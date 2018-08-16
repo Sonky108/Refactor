@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cf26344dfb3bd4b8c0b9afb412f7df, type: 3}
   m_Name: Sad
   m_EditorClassIdentifier: 
-  emotion: 0
+  emotion: 1
   mouth: {fileID: 2800000, guid: b4f614a74511414448c48c84d03d7bf8, type: 3}
   onChange: {fileID: 0}
