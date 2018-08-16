@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Laugh
   m_EditorClassIdentifier: 
   emotion: 2
-  mouth: {fileID: 2800000, guid: 7626454baa0822a4ca74f00f1c98e3f8, type: 3}
+  mouth: {fileID: 21300000, guid: 7626454baa0822a4ca74f00f1c98e3f8, type: 3}
   onChange: {fileID: 8300000, guid: fd28274aaeee2584b8dcd38ed044531c, type: 3}

@@ -8,7 +8,7 @@ public class EmotionData : ScriptableObject
 	[SerializeField]
 	private Emotion emotion;
 	[SerializeField]
-	private Texture mouth;
+	private Sprite mouth;
 	[SerializeField]
 	private AudioClip onChange;
 
@@ -20,7 +20,7 @@ public class EmotionData : ScriptableObject
         }
     }
 
-    public Texture Mouth
+    public Sprite Mouth
     {
         get
         {
