@@ -6,9 +6,33 @@ using UnityEngine;
 public class EmotionData : ScriptableObject 
 {
 	[SerializeField]
-	private Emotion Emotion;
+	private Emotion emotion;
 	[SerializeField]
-	private Texture Mouth;
+	private Texture mouth;
 	[SerializeField]
-	private AudioClip OnChange;
+	private AudioClip onChange;
+
+    public Emotion Emotion
+    {
+        get
+        {
+            return emotion;
+        }
+    }
+
+    public Texture Mouth
+    {
+        get
+        {
+            return mouth;
+        }
+    }
+
+    public AudioClip OnChange
+    {
+        get
+        {
+            return onChange;
+        }
+    }
 }

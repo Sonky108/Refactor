@@ -1,23 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-	public GameObject _image;
-	public Sprite[] sprites;
+	public event Action<EmotionData> EmotionChangedListeners;
 
-	public static GameManager Instance;
+	private Emotion currentEmotion;
 
-	public int currentSprite = 0;
-
-	private void Awake()
+	private void GetNextEmotion()
 	{
-		Instance = this;
+		currentEmotion = currentEmotion.Next();
+
+		var emotionData = EmotionsRegistry.Instance.GetEmotionData(currentEmotion);
+
+		EmotionChangedListeners?.Invoke(emotionData);
+	}
+
+	public override void OnAwake()
+	{
+		InvokeRepeating("GetNextEmotion", 0f, 0.4f);
 	}
 
 	private void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		/*if (Input.GetMouseButtonDown(0))
 		{
 			currentSprite++;
 
@@ -31,6 +38,6 @@ public class GameManager : MonoBehaviour
 				GetComponent<AudioSource>().Play();
 			}
 
-		}
+		}*/
 	}
 }

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05cf26344dfb3bd4b8c0b9afb412f7df, type: 3}
-  m_Name: Laugh
+  m_Name: None
   m_EditorClassIdentifier: 
-  emotion: 1
-  mouth: {fileID: 2800000, guid: 7626454baa0822a4ca74f00f1c98e3f8, type: 3}
-  onChange: {fileID: 8300000, guid: fd28274aaeee2584b8dcd38ed044531c, type: 3}
+  emotion: 0
+  mouth: {fileID: 0}
+  onChange: {fileID: 0}
