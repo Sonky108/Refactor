@@ -51,15 +51,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AudioController.cs" />
-     <Compile Include="Assets\Scripts\ControllerUI.cs" />
      <Compile Include="Assets\Scripts\Enums\Emotion.cs" />
-     <Compile Include="Assets\Scripts\Enums\Extensions.cs" />
-     <Compile Include="Assets\Scripts\ManController.cs" />
+     <Compile Include="Assets\Scripts\Extensions\AudioSourceExtensions.cs" />
+     <Compile Include="Assets\Scripts\Extensions\EnumExtensions.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IManController.cs" />
+     <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\AudioController.cs" />
+     <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\ManController.cs" />
+     <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\UI\ControllerUI.cs" />
+     <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\UI\PointerController.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Managers\EmotionsRegistry.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\MonoBehaviourSingleton.cs" />
-     <Compile Include="Assets\Scripts\PointerController.cs" />
      <Compile Include="Assets\Scripts\PointerEvent.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\EmotionData.cs" />
  <Reference Include="UnityEngine.UI">

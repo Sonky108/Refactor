@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public static class Extensions
+public static class EnumExtensions
 {
     public static T Next<T>(this T src) where T : struct
     {
@@ -10,18 +10,5 @@ public static class Extensions
         T[] arr = (T[])Enum.GetValues(src.GetType());
         int j = Array.IndexOf<T>(arr, src) + 1;
         return (arr.Length==j) ? arr[0] : arr[j];            
-    }
-
-    public static void Play(this AudioSource audioSource, AudioClip audioClip)
-    {
-        audioSource.clip = audioClip;
-        audioSource.Play();
-    }
-    
-    public static void Initialize(this AudioSource audioSource)
-    {
-        audioSource.playOnAwake = false;
-        audioSource.clip = null;
-        audioSource.loop = false;
-    }
+    } 
 }

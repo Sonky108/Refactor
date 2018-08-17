@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManController : MonoBehaviourSingleton<ManController> 
+public class ManController : MonoBehaviourSingleton<ManController>, IManController
 {
     [SerializeField]
     private SpriteRenderer mouth;
@@ -13,7 +13,7 @@ public class ManController : MonoBehaviourSingleton<ManController>
         GameManager.instance.emotionChangedListeners += OnEmotionChanged;
     }
 
-    private void OnEmotionChanged(EmotionData obj)
+    public void OnEmotionChanged(EmotionData obj)
     {
         mouth.sprite = obj.mouth;
         AudioController.instance.Play(obj.onChangeSound);
