@@ -6,7 +6,7 @@ using UnityEngine;
 public class AudioController : MonoBehaviourSingleton<AudioController> 
 {
     [SerializeField]
-    private AudioSource MainAudioSource;
+    private AudioSource mainAudioSource;
 
     private List<AudioSource> audioSources;
 
@@ -27,7 +27,7 @@ public class AudioController : MonoBehaviourSingleton<AudioController>
         }
         else
         {
-            MainAudioSource.Play(clip);
+            mainAudioSource.Play(clip);
         }
     }
 
@@ -72,10 +72,10 @@ public class AudioController : MonoBehaviourSingleton<AudioController>
 
     private void Initialize()
     {
-        MainAudioSource.Initialize();
+        mainAudioSource.Initialize();
 
         audioSources = new List<AudioSource>();
 
-        AddAudioSourceToList(MainAudioSource);
+        AddAudioSourceToList(mainAudioSource);
     }
 }

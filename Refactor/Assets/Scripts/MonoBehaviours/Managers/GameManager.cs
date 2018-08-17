@@ -4,17 +4,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-	[Range(0.01f, 1f)]
-	public float speed = 0.2f;
-	public event Action<EmotionData> EmotionChangedListeners;
+	public event Action<EmotionData> emotionChangedListeners;
 
 	private Emotion currentEmotion;
 
 	public override void OnAwake()
 	{
-		ControllerUI.Instance.ScreenUpListeners += OnScreenPressed;
-
-		//InvokeRepeating("OnScreenPressed", 0f, speed);
+		ControllerUI.instance.screenUpListeners += OnScreenPressed;
 	}
 
     private void OnScreenPressed()
@@ -34,27 +30,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 	{
 		currentEmotion = currentEmotion.Next();
 
-		var emotionData = EmotionsRegistry.Instance.GetEmotionData(currentEmotion);
+		var emotionData = EmotionsRegistry.instance.GetEmotionData(currentEmotion);
 
-		EmotionChangedListeners?.Invoke(emotionData);
-	}
-
-	private void Update()
-	{
-		/*if (Input.GetMouseButtonDown(0))
-		{
-			currentSprite++;
-
-			if (currentSprite >= 4)
-				currentSprite = 0;
-
-			_image.GetComponent<Image>().sprite = sprites[currentSprite];
-
-			if (_image.GetComponent<Image>().sprite.name == "mouth_lol")
-			{
-				GetComponent<AudioSource>().Play();
-			}
-
-		}*/
+		emotionChangedListeners?.Invoke(emotionData);
 	}
 }

@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class ControllerUI : MonoBehaviourSingleton<ControllerUI>
 {
-    public event Action ScreenDownListeners;
-    public event Action ScreenUpListeners;
+    public event Action screenDownListeners;
+    public event Action screenUpListeners;
 
     [Header("Buttons")]
 
     [SerializeField]
-    private PointerController Screen;
+    private PointerController screen;
 
     public override void OnAwake()
     {
@@ -22,25 +22,25 @@ public class ControllerUI : MonoBehaviourSingleton<ControllerUI>
 
     private void BindButtons()
     {
-        Screen.OnPointerDown.AddListener(OnScreenDown);
+        screen.onPointerDown.AddListener(OnScreenDown);
 
-        Screen.OnPointerUp.AddListener(OnScreenUp);
+        screen.onPointerUp.AddListener(OnScreenUp);
     }
 
     private void UnbindButtons()
     {
-        Screen.OnPointerDown.RemoveListeners();
+        screen.onPointerDown.RemoveListeners();
 
-        Screen.OnPointerUp.RemoveListeners();
+        screen.onPointerUp.RemoveListeners();
     }
 
     private void OnScreenUp()
     {
-        ScreenUpListeners?.Invoke();
+        screenUpListeners?.Invoke();
     }
 
     private void OnScreenDown()
     {
-        ScreenDownListeners?.Invoke();
+        screenDownListeners?.Invoke();
     }
 }

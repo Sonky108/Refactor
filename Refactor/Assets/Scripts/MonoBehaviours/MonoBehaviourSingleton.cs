@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MonoBehaviourSingleton<T> : MonoBehaviour  where T : class 
 {
-    public static T Instance;
+    public static T instance;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this as T;
+            instance = this as T;
             DontDestroyOnLoad(this);
         }
-        else if(Instance != this as T)
+        else if(instance != this as T)
         {
             Debug.LogWarning($"Destroying {gameObject.name}. Another instance of object has been found");
             Destroy(gameObject);

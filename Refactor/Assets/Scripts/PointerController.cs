@@ -5,25 +5,25 @@ using UnityEngine.EventSystems;
 
 public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
 {
-    public PointerEvent OnPointerDown;
-    public PointerEvent OnPointerUp;
-    public PointerEvent OnPointerPressed;
+    public PointerEvent onPointerDown;
+    public PointerEvent onPointerUp;
+    public PointerEvent onPointerPressed;
     
     private bool isPressed;
     private bool isUp;
 
     private void Awake()
     {
-        OnPointerDown = new PointerEvent();
-        OnPointerUp = new PointerEvent();
+        onPointerDown = new PointerEvent();
+        onPointerUp = new PointerEvent();
     }
 
     private void FixedUpdate()
     {
         if (isPressed)
-            OnPointerDown.DoInvoke();
+            onPointerDown.DoInvoke();
         if (isUp)
-            OnPointerUp.DoInvoke(ResetUp);
+            onPointerUp.DoInvoke(ResetUp);
     }
 
     void IPointerUpHandler.OnPointerUp(PointerEventData eventData)

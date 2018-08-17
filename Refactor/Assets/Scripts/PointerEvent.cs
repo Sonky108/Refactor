@@ -12,9 +12,9 @@
         this.action = null;
     }
 
-    public void DoInvoke(System.Action OnInvoke = null)
+    public void DoInvoke(System.Action onInvoke = null)
     {
         action?.Invoke();
-        OnInvoke?.Invoke();
+        onInvoke?.Invoke();
     }
 }

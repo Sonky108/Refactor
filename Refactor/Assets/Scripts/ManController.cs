@@ -6,16 +6,16 @@ using UnityEngine;
 public class ManController : MonoBehaviourSingleton<ManController> 
 {
     [SerializeField]
-    private SpriteRenderer Mouth;
+    private SpriteRenderer mouth;
 
     public override void OnAwake()
     {
-        GameManager.Instance.EmotionChangedListeners += OnEmotionChanged;
+        GameManager.instance.emotionChangedListeners += OnEmotionChanged;
     }
 
     private void OnEmotionChanged(EmotionData obj)
     {
-        Mouth.sprite = obj.Mouth;
-        AudioController.Instance.Play(obj.OnChange);
+        mouth.sprite = obj.mouth;
+        AudioController.instance.Play(obj.onChangeSound);
     }
 }

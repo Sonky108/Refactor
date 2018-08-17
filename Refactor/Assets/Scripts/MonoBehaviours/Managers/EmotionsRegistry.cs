@@ -10,7 +10,7 @@ public class EmotionsRegistry : MonoBehaviourSingleton<EmotionsRegistry>
 
 	public EmotionData GetEmotionData(Emotion emotion)
 	{
-		var result = emotions.FirstOrDefault(x => x.Emotion == emotion);
+		var result = emotions.FirstOrDefault(x => x.emotion == emotion);
 
 		if(result == null)
 		{

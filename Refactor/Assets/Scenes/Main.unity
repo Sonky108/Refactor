@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 104597742}
   - component: {fileID: 104597741}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 816c7ff42d1a8274c9248607f0e8aed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mouth: {fileID: 915972390}
+  mouth: {fileID: 915972390}
 --- !u!1 &444000733
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ba3ecc7f9ab1347bd97cc36d957d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource: {fileID: 1749362918}
+  mainAudioSource: {fileID: 1749362918}
 --- !u!4 &1749362920
 Transform:
   m_ObjectHideFlags: 0
@@ -891,4 +891,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348b7877b1c099642a86b3dc3a9f4df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Screen: {fileID: 104597741}
+  screen: {fileID: 104597741}
