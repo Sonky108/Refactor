@@ -16,5 +16,6 @@ public class ManController : MonoBehaviourSingleton<ManController>
     private void OnEmotionChanged(EmotionData obj)
     {
         Mouth.sprite = obj.Mouth;
+        AudioController.Instance.Play(obj.OnChange);
     }
 }

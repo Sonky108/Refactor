@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public static class Extensions
 {
@@ -9,5 +10,18 @@ public static class Extensions
         T[] Arr = (T[])Enum.GetValues(src.GetType());
         int j = Array.IndexOf<T>(Arr, src) + 1;
         return (Arr.Length==j) ? Arr[0] : Arr[j];            
+    }
+
+    public static void Play(this AudioSource audioSource, AudioClip audioClip)
+    {
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
+    
+    public static void Initialize(this AudioSource audioSource)
+    {
+        audioSource.playOnAwake = false;
+        audioSource.clip = null;
+        audioSource.loop = false;
     }
 }

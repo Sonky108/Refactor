@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AudioController.cs" />
      <Compile Include="Assets\Scripts\ControllerUI.cs" />
      <Compile Include="Assets\Scripts\Enums\Emotion.cs" />
      <Compile Include="Assets\Scripts\Enums\Extensions.cs" />

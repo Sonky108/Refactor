@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
+	[Range(0.01f, 1f)]
+	public float speed = 0.2f;
 	public event Action<EmotionData> EmotionChangedListeners;
 
 	private Emotion currentEmotion;
@@ -11,6 +13,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 	public override void OnAwake()
 	{
 		ControllerUI.Instance.ScreenUpListeners += OnScreenPressed;
+
+		//InvokeRepeating("OnScreenPressed", 0f, speed);
 	}
 
     private void OnScreenPressed()
@@ -18,7 +22,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         if(EmotionCanBeChanged())
 		{
 			ChangeEmotion();
-			Debug.Log("Emotion changed");
 		}
     }
 
