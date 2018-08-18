@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Main.unity
+- path: C:/Users/Marcin/Desktop/h/DaftMobile_Unity_Refactor_Test/Assets/Test.unity
   isLoaded: 1
   isActive: 1
