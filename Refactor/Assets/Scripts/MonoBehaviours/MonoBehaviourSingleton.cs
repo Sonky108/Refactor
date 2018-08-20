@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[Obsolete("Singleton is an anti-pattern")]
 public class MonoBehaviourSingleton<T> : MonoBehaviour  where T : class 
 {
     public static T instance;
