@@ -54,13 +54,19 @@
      <Compile Include="Assets\Scripts\Enums\Emotion.cs" />
      <Compile Include="Assets\Scripts\Extensions\AudioSourceExtensions.cs" />
      <Compile Include="Assets\Scripts\Extensions\EnumExtensions.cs" />
+     <Compile Include="Assets\Scripts\Installers\GameInstaller.cs" />
+     <Compile Include="Assets\Scripts\Installers\ManInstaller.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IAudioController.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IManController.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IManInputController.cs" />
+     <Compile Include="Assets\Scripts\Man.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\AudioController.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\ManController.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\UI\ControllerUI.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\UI\PointerController.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Managers\EmotionsRegistry.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\Managers\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MonoBehaviours\ManInputController.cs" />
      <Compile Include="Assets\Scripts\MonoBehaviours\MonoBehaviourSingleton.cs" />
      <Compile Include="Assets\Scripts\PointerEvent.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\EmotionData.cs" />
@@ -100,6 +106,21 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/Marcin/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
+ <Reference Include="Zenject-usage">
+ <HintPath>C:/Users/Marcin/Desktop/Refact/Refactor/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{0E696491-EB08-5AD6-6E2A-2025BDD11332}</Project>      <Name>Zenject</Name>    </ProjectReference>
+    <ProjectReference Include="Zenject-TestFramework-Editor.csproj">
+      <Project>{1C338442-3409-E017-57D7-4EC8F9C8E879}</Project>      <Name>Zenject-TestFramework-Editor</Name>    </ProjectReference>
+    <ProjectReference Include="Zenject-TestFramework.csproj">
+      <Project>{50B2C39E-CBEB-E343-CCD6-BC31AE5E42DB}</Project>      <Name>Zenject-TestFramework</Name>    </ProjectReference>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{E7DD4BD5-2082-A8C3-868B-F28556EA04BE}</Project>      <Name>Zenject-Editor</Name>    </ProjectReference>
+    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
+      <Project>{DC77DF83-8456-193F-7E4B-E2CC3D34C9BE}</Project>      <Name>Zenject-PoolMonitor-Editor</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
