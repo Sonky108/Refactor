@@ -1,29 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+public class PointerController : ObservableTriggerBase, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
 {
-    public PointerEvent onPointerDown;
-    public PointerEvent onPointerUp;
-    public PointerEvent onPointerPressed;
-    
+    private Subject<Unit> onPointerUp;
+
     private bool isPressed;
     private bool isUp;
-
-    private void Awake()
-    {
-        onPointerDown = new PointerEvent();
-        onPointerUp = new PointerEvent();
-    }
 
     private void FixedUpdate()
     {
         if (isPressed)
-            onPointerDown.DoInvoke();
+        {
+
+        }
         if (isUp)
-            onPointerUp.DoInvoke(ResetUp);
+        {
+            OnPointerUp();
+        }
+    }
+
+    void OnPointerUp()
+    {
+        onPointerUp?.OnNext(Unit.Default);
+        ResetUp();
     }
 
     void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
@@ -38,6 +43,11 @@ public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpH
         isUp = false;
     }
 
+    public IObservable<Unit> PointerUp()
+    {
+        return onPointerUp ?? (onPointerUp = new Subject<Unit>());
+    }
+
     public void OnPointerExit(PointerEventData eventData)
     {
         if (isPressed)
@@ -50,5 +60,10 @@ public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpH
     {
         isPressed = true;
         isUp = false;
+    }
+
+    protected override void RaiseOnCompletedOnDestroy()
+    {
+        onPointerUp?.OnCompleted();
     }
 }

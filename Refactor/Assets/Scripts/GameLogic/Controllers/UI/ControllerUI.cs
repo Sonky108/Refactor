@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
+using UniRx;
 
 public class ScreenReleasedSignal
 {
@@ -13,22 +14,18 @@ public class ControllerUI : IInitializable
 {
     private readonly SignalBus signalBus;
 
-    [Header("Buttons")]
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private PointerController screen;
 
     private void BindButtons()
     {
-        screen.onPointerDown.AddListener(OnScreenDown);
-
-        screen.onPointerUp.AddListener(OnScreenUp);
+        screen.PointerUp().Subscribe(x => OnScreenUp()).AddTo(disposables);
     }
 
     private void UnbindButtons()
     {
-        screen.onPointerDown.RemoveListeners();
-
-        screen.onPointerUp.RemoveListeners();
+        disposables.Clear();
     }
 
     private void OnScreenUp()
