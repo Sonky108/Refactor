@@ -9,7 +9,6 @@ public class GameInstaller : MonoInstaller<GameInstaller>
 
         SignalBusInstaller.Install(Container);
 
-        Container.DeclareSignal<ScreenPressedSignal>();
         Container.DeclareSignal<ScreenReleasedSignal>();
     }
 }

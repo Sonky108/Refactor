@@ -4,11 +4,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 
-public class ScreenPressedSignal
-{
-
-}
-
 public class ScreenReleasedSignal
 {
 
@@ -43,7 +38,7 @@ public class ControllerUI : IInitializable
 
     private void OnScreenDown()
     {
-        signalBus.Fire(new ScreenPressedSignal());
+
     }
 
     public ControllerUI(SignalBus signalBus, Settings settings)
