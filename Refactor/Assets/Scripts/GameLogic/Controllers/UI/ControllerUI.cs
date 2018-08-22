@@ -16,20 +16,11 @@ public class ScreenReleasedSignal
 
 public class ControllerUI : IInitializable
 {
-    public event Action screenDownListeners;
-    public event Action screenUpListeners;
-
-    readonly SignalBus signalBus;
+    private readonly SignalBus signalBus;
 
     [Header("Buttons")]
 
     private PointerController screen;
-
-   /* public void Awake()
-    {
-        UnbindButtons();
-        BindButtons();
-    }*/
 
     private void BindButtons()
     {
@@ -48,13 +39,11 @@ public class ControllerUI : IInitializable
     private void OnScreenUp()
     {
         signalBus.Fire(new ScreenReleasedSignal());
-       // screenUpListeners?.Invoke();
     }
 
     private void OnScreenDown()
     {
         signalBus.Fire(new ScreenPressedSignal());
-       // screenDownListeners?.Invoke();
     }
 
     public ControllerUI(SignalBus signalBus, Settings settings)

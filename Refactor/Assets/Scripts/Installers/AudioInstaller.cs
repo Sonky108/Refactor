@@ -10,8 +10,6 @@ public class AudioInstaller : MonoInstaller<AudioInstaller>
       
     public override void InstallBindings()
     {
-        Debug.Log("Install");
         Container.BindInterfacesAndSelfTo<AudioController>().AsSingle().WithArguments(settings);
-        // Container.BindInterfacesAndSelfTo<AudioController>().AsCached();
     }
 }

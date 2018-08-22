@@ -15,8 +15,6 @@ public class EmotionChangedSignal
 
 public class GameManager
 {
-	public event Action<EmotionData> emotionChangedListeners;
-
 	private readonly SignalBus signalBus;
 
 	private readonly IEmotionsRegistry emotionsRegistry;
@@ -28,11 +26,6 @@ public class GameManager
 		this.signalBus = signalBus;
 		this.emotionsRegistry = emotionsRegistry;
     }
-
-    /*public override void OnAwake()
-	{
-		ControllerUI.instance.screenUpListeners += OnScreenPressed;
-	}*/
 
     public void OnScreenPressed()
     {
@@ -54,7 +47,5 @@ public class GameManager
 		var emotionData = emotionsRegistry.GetEmotionData(currentEmotion);
 
 		signalBus.Fire(new EmotionChangedSignal(emotionData));
-		
-		//emotionChangedListeners?.Invoke(emotionData);
 	}
 }

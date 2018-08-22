@@ -54,6 +54,12 @@
      <Compile Include="Assets\Scripts\Enums\Emotion.cs" />
      <Compile Include="Assets\Scripts\Extensions\AudioSourceExtensions.cs" />
      <Compile Include="Assets\Scripts\Extensions\EnumExtensions.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Controllers\AudioController.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Controllers\ManController.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Controllers\UI\ControllerUI.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Controllers\UI\PointerController.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Managers\EmotionsRegistry.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Installers\AudioInstaller.cs" />
      <Compile Include="Assets\Scripts\Installers\EmotionsInstaller.cs" />
      <Compile Include="Assets\Scripts\Installers\GameInstaller.cs" />
@@ -61,18 +67,7 @@
      <Compile Include="Assets\Scripts\Installers\UIControllerInstaller.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IAudioController.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IEmotionsRegistry.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\IMan.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IManController.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\IManInputController.cs" />
-     <Compile Include="Assets\Scripts\Man.cs" />
-     <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\AudioController.cs" />
-     <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\ManController.cs" />
-     <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\UI\ControllerUI.cs" />
-     <Compile Include="Assets\Scripts\MonoBehaviours\Controllers\UI\PointerController.cs" />
-     <Compile Include="Assets\Scripts\MonoBehaviours\Managers\EmotionsRegistry.cs" />
-     <Compile Include="Assets\Scripts\MonoBehaviours\Managers\GameManager.cs" />
-     <Compile Include="Assets\Scripts\MonoBehaviours\ManInputController.cs" />
-     <Compile Include="Assets\Scripts\MonoBehaviours\MonoBehaviourSingleton.cs" />
      <Compile Include="Assets\Scripts\PointerEvent.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\EmotionData.cs" />
  <Reference Include="UnityEngine.UI">
@@ -118,22 +113,22 @@
   <ItemGroup>
     <ProjectReference Include="Zenject-Editor.csproj">
       <Project>{E7DD4BD5-2082-A8C3-868B-F28556EA04BE}</Project>      <Name>Zenject-Editor</Name>    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{C9C0689E-1CB7-7FBD-DE6C-480D909C538A}</Project>      <Name>UniRx</Name>    </ProjectReference>
     <ProjectReference Include="Zenject-TestFramework-Editor.csproj">
       <Project>{1C338442-3409-E017-57D7-4EC8F9C8E879}</Project>      <Name>Zenject-TestFramework-Editor</Name>    </ProjectReference>
     <ProjectReference Include="Zenject-TestFramework.csproj">
       <Project>{50B2C39E-CBEB-E343-CCD6-BC31AE5E42DB}</Project>      <Name>Zenject-TestFramework</Name>    </ProjectReference>
-    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
-      <Project>{DC77DF83-8456-193F-7E4B-E2CC3D34C9BE}</Project>      <Name>Zenject-PoolMonitor-Editor</Name>    </ProjectReference>
-    <ProjectReference Include="Zenject.csproj">
-      <Project>{0E696491-EB08-5AD6-6E2A-2025BDD11332}</Project>      <Name>Zenject</Name>    </ProjectReference>
-    <ProjectReference Include="UniRx.Async.Editor.csproj">
-      <Project>{2F623E95-2B49-C3B2-40C5-E5A35625A102}</Project>      <Name>UniRx.Async.Editor</Name>    </ProjectReference>
-    <ProjectReference Include="UniRx.csproj">
-      <Project>{C9C0689E-1CB7-7FBD-DE6C-480D909C538A}</Project>      <Name>UniRx</Name>    </ProjectReference>
     <ProjectReference Include="UniRx.Examples.csproj">
       <Project>{426A3C2C-AB69-6387-0D85-053B534F80CE}</Project>      <Name>UniRx.Examples</Name>    </ProjectReference>
     <ProjectReference Include="UniRx.Async.csproj">
       <Project>{720CF046-2B06-A91F-4935-4032C7B86706}</Project>      <Name>UniRx.Async</Name>    </ProjectReference>
+    <ProjectReference Include="UniRx.Async.Editor.csproj">
+      <Project>{2F623E95-2B49-C3B2-40C5-E5A35625A102}</Project>      <Name>UniRx.Async.Editor</Name>    </ProjectReference>
+    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
+      <Project>{DC77DF83-8456-193F-7E4B-E2CC3D34C9BE}</Project>      <Name>Zenject-PoolMonitor-Editor</Name>    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{0E696491-EB08-5AD6-6E2A-2025BDD11332}</Project>      <Name>Zenject</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

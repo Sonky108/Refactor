@@ -8,10 +8,12 @@ public class EmotionsInstaller : MonoInstaller<EmotionsInstaller>
 
     public override void InstallBindings()
     {
-        Debug.Log("Install");
         Container.Bind<IEmotionsRegistry>()
             .To<EmotionsRegistry>()
             .AsSingle()
             .WithArguments(settings.emotions);
+
+        Container.DeclareSignal<EmotionChangedSignal>();
+        Container.BindSignal<EmotionChangedSignal>().ToMethod<IManController>(x => x.ChangeEmotion).FromResolveAll();
     }
 }

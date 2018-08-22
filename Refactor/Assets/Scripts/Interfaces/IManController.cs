@@ -1,4 +1,8 @@
-﻿public interface IManController 
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public interface IManController 
 {
-    void OnEmotionChanged(EmotionData obj);
+    void ChangeEmotion(EmotionChangedSignal emotionChangedSignal);
 }

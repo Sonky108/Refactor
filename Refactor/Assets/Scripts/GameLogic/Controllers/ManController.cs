@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class Man: IMan
+public class ManController: IManController
 {
     private readonly SpriteRenderer mouth;
     
     [Inject]
-    private readonly IAudioController _IAudioController;
+    private readonly IAudioController audioController;
 
     private Emotion currentEmotion;
 
-    public Man(SpriteRenderer mouth)
+    public ManController(SpriteRenderer mouth)
     {
         this.mouth = mouth;
     }
@@ -20,7 +20,6 @@ public class Man: IMan
     public void ChangeEmotion(EmotionChangedSignal emotionChangedSignal)
     {
         mouth.sprite = emotionChangedSignal.emotionData.mouth;
-        //AudioController.instance.Play(obj.onChangeSound);
-        _IAudioController.Play(emotionChangedSignal.emotionData.onChangeSound);
+        audioController.Play(emotionChangedSignal.emotionData.onChangeSound);
     }
 }
