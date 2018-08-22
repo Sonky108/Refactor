@@ -1,4 +1,7 @@
-﻿public class PointerEvent
+﻿using System;
+
+[Obsolete]
+public class PointerEvent
 {
     private System.Action action;
 
