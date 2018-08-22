@@ -14,6 +14,5 @@ public class EmotionsInstaller : MonoInstaller<EmotionsInstaller>
             .WithArguments(settings.emotions);
 
         Container.DeclareSignal<EmotionChangedSignal>();
-        Container.BindSignal<EmotionChangedSignal>().ToMethod<IManController>(x => x.ChangeEmotion).FromResolveAll();
     }
 }

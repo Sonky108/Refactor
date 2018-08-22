@@ -1,4 +1,5 @@
 ﻿using System;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -13,9 +14,11 @@ public class EmotionChangedSignal
     }
 }
 
-public class GameManager
+public class GameManager: IInitializable, IDisposable
 {
 	private readonly SignalBus signalBus;
+
+    private readonly CompositeDisposable disposables = new CompositeDisposable();
 
 	private readonly IEmotionsRegistry emotionsRegistry;
 
@@ -48,4 +51,15 @@ public class GameManager
 
 		signalBus.Fire(new EmotionChangedSignal(emotionData));
 	}
+
+    public void Initialize()
+    {
+        signalBus.GetStream<ScreenReleasedSignal>()
+            .Subscribe(x => OnScreenPressed()).AddTo(disposables);
+    }
+
+    public void Dispose()
+    {
+        disposables.Dispose();
+    }
 }

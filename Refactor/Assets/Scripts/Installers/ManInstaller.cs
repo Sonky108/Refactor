@@ -9,7 +9,7 @@ public class ManInstaller : MonoInstaller<ManInstaller>
 
     public override void InstallBindings()
     {
-        Container.Bind<IManController>().To<ManController>().AsSingle()
+        Container.BindInterfacesAndSelfTo<ManController>().AsSingle()
             .WithArguments(settings.mouth);
     }
 

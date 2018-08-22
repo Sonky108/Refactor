@@ -551,6 +551,7 @@ PlayerSettings:
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
     1: ZEN_SIGNALS_ADD_UNIRX
+    7: ZEN_SIGNALS_ADD_UNIRX
   platformArchitecture: {}
   scriptingBackend: {}
   incrementalIl2cppBuild: {}
