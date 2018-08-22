@@ -2,27 +2,22 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace DaftCode.Refactor
-{
-    public class ManInstaller : MonoInstaller<ManInstaller>
-    {            
-        [SerializeField]
-        private Settings settings;
+public class ManInstaller : MonoInstaller<ManInstaller>
+{            
+    [SerializeField]
+    private Settings settings;
 
-        public override void InstallBindings()
-        {
-            Debug.Log("Install");
-            Container.Bind<Man>().AsSingle()
-                .WithArguments(settings.mouth);
-            //Container.BindInterfacesTo<PlayerInputHandler>().AsSingle();
+    public override void InstallBindings()
+    {
+        Debug.Log("Install");
+        //Container.Bind<ManController>();
+        Container.Bind<IMan>().To<Man>().AsSingle()
+            .WithArguments(settings.mouth);
+    }
 
-            Container.BindInterfacesAndSelfTo<ManInputController>().AsSingle();
-        }
-
-        [Serializable]
-        public class Settings
-        {
-            public SpriteRenderer mouth;
-        }
+    [Serializable]
+    public class Settings
+    {
+        public SpriteRenderer mouth;
     }
 }

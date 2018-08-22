@@ -1,25 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class Man 
+public class Man: IMan
 {
     private readonly SpriteRenderer mouth;
+    
+    [Inject]
     private readonly IAudioController _IAudioController;
-    private readonly IManInputController _IManInputController;
 
     private Emotion currentEmotion;
 
-    public Man(SpriteRenderer mouth, IAudioController IAudioController)
+    public Man(SpriteRenderer mouth)
     {
         this.mouth = mouth;
-        this._IAudioController = IAudioController;
     }
 
-    public void ChangeEmotion(EmotionData obj)
+    public void ChangeEmotion(EmotionChangedSignal emotionChangedSignal)
     {
-        mouth.sprite = obj.mouth;
+        mouth.sprite = emotionChangedSignal.emotionData.mouth;
         //AudioController.instance.Play(obj.onChangeSound);
-        _IAudioController.Play(obj.onChangeSound);
+        _IAudioController.Play(emotionChangedSignal.emotionData.onChangeSound);
     }
 }

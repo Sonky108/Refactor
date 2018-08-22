@@ -1,19 +1,40 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
-public class GameManager : MonoBehaviourSingleton<GameManager>
+public class EmotionChangedSignal
+{
+	public EmotionData emotionData {get; private set;}
+
+    public EmotionChangedSignal(EmotionData emotionData)
+    {
+		this.emotionData = emotionData;
+    }
+}
+
+public class GameManager
 {
 	public event Action<EmotionData> emotionChangedListeners;
 
+	private readonly SignalBus signalBus;
+
+	private readonly IEmotionsRegistry emotionsRegistry;
+
 	private Emotion currentEmotion;
 
-	public override void OnAwake()
+    public GameManager(IEmotionsRegistry emotionsRegistry, SignalBus signalBus)
+    {
+		this.signalBus = signalBus;
+		this.emotionsRegistry = emotionsRegistry;
+    }
+
+    /*public override void OnAwake()
 	{
 		ControllerUI.instance.screenUpListeners += OnScreenPressed;
-	}
+	}*/
 
-    private void OnScreenPressed()
+    public void OnScreenPressed()
     {
         if(EmotionCanBeChanged())
 		{
@@ -30,8 +51,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 	{
 		currentEmotion = currentEmotion.Next();
 
-		var emotionData = EmotionsRegistry.instance.GetEmotionData(currentEmotion);
+		var emotionData = emotionsRegistry.GetEmotionData(currentEmotion);
 
-		emotionChangedListeners?.Invoke(emotionData);
+		signalBus.Fire(new EmotionChangedSignal(emotionData));
+		
+		//emotionChangedListeners?.Invoke(emotionData);
 	}
 }

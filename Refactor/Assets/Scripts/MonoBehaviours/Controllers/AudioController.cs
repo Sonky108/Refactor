@@ -1,18 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
-public class AudioController : MonoBehaviourSingleton<AudioController> 
+public class AudioController : IAudioController, IInitializable 
 {
-    [SerializeField]
     private AudioSource mainAudioSource;
 
     private List<AudioSource> audioSources;
 
-    public override void OnAwake()
+    public AudioController(Settings settings)
     {
-        Initialize();
+        mainAudioSource = settings.mainAudioSource;
     }
 
     public void Play(AudioClip clip, bool forcePlay = true)
@@ -54,7 +55,7 @@ public class AudioController : MonoBehaviourSingleton<AudioController>
     {
         var gameObject = new GameObject();
 
-        gameObject.transform.parent = this.gameObject.transform;
+        gameObject.transform.parent = mainAudioSource.gameObject.transform;
 
         var audioSource = gameObject.AddComponent<AudioSource>();
 
@@ -77,5 +78,16 @@ public class AudioController : MonoBehaviourSingleton<AudioController>
         audioSources = new List<AudioSource>();
 
         AddAudioSourceToList(mainAudioSource);
+    }
+
+    void IInitializable.Initialize()
+    {
+        Initialize();
+    }
+
+    [Serializable]
+    public class Settings
+    {
+        public AudioSource mainAudioSource;
     }
 }

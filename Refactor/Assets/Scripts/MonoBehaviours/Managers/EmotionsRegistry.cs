@@ -1,12 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EmotionsRegistry : MonoBehaviourSingleton<EmotionsRegistry> 
+public class EmotionsRegistry: IEmotionsRegistry
 {
 	[SerializeField]
 	private List<EmotionData> emotions;
+
+	public EmotionsRegistry(List<EmotionData> emotions)
+	{
+		this.emotions = emotions;
+	}
 
 	public EmotionData GetEmotionData(Emotion emotion)
 	{
@@ -18,5 +24,11 @@ public class EmotionsRegistry : MonoBehaviourSingleton<EmotionsRegistry>
 		}
 
 		return result;
+	}
+
+	[Serializable]
+	public class Settings
+	{
+		public List<EmotionData> emotions;
 	}
 }

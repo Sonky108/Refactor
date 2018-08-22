@@ -2,23 +2,34 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Zenject;
 
-public class ControllerUI : MonoBehaviourSingleton<ControllerUI>
+public class ScreenPressedSignal
+{
+
+}
+
+public class ScreenReleasedSignal
+{
+
+}
+
+public class ControllerUI : IInitializable
 {
     public event Action screenDownListeners;
     public event Action screenUpListeners;
 
+    readonly SignalBus signalBus;
+
     [Header("Buttons")]
 
-    [SerializeField]
     private PointerController screen;
 
-    public override void OnAwake()
+   /* public void Awake()
     {
-        base.OnAwake();
         UnbindButtons();
         BindButtons();
-    }
+    }*/
 
     private void BindButtons()
     {
@@ -36,11 +47,31 @@ public class ControllerUI : MonoBehaviourSingleton<ControllerUI>
 
     private void OnScreenUp()
     {
-        screenUpListeners?.Invoke();
+        signalBus.Fire(new ScreenReleasedSignal());
+       // screenUpListeners?.Invoke();
     }
 
     private void OnScreenDown()
     {
-        screenDownListeners?.Invoke();
+        signalBus.Fire(new ScreenPressedSignal());
+       // screenDownListeners?.Invoke();
+    }
+
+    public ControllerUI(SignalBus signalBus, Settings settings)
+    {
+        this.signalBus = signalBus;
+        screen = settings.screen;
+    }
+
+    public void Initialize()
+    {
+        UnbindButtons();
+        BindButtons();
+    }
+
+    [Serializable]
+    public class Settings
+    {
+        public PointerController screen;
     }
 }

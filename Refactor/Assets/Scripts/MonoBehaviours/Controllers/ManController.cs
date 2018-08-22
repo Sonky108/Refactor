@@ -3,19 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManController : MonoBehaviourSingleton<ManController>, IManController
+public class ManController : MonoBehaviour, IManController
 {
     [SerializeField]
     private SpriteRenderer mouth;
 
-    public override void OnAwake()
+    private IAudioController audioController;
+
+    public ManController(IAudioController audioController)
+    {
+        this.audioController = audioController;
+    }
+   /* public override void OnAwake()
     {
         GameManager.instance.emotionChangedListeners += OnEmotionChanged;
-    }
+    }*/
 
     public void OnEmotionChanged(EmotionData obj)
     {
         mouth.sprite = obj.mouth;
-        AudioController.instance.Play(obj.onChangeSound);
+        audioController.Play(obj.onChangeSound);
     }
 }

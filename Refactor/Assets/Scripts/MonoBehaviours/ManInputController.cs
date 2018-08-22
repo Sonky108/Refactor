@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-public class ManInputController : IManInputController, IFixedTickable, IPointerUpHandler, IPointerExitHandler, IPointerDownHandler
+public class ManInputController : MonoBehaviour, IManInputController, IPointerUpHandler, IPointerExitHandler, IPointerDownHandler
 {
     private bool isPressed;
     private bool isUp;
 
-    public void FixedTick()
+    public void FixedUpdate()
     {
         Debug.Log("FIX");
         if (isPressed)
